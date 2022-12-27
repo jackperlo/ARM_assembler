@@ -1,0 +1,45 @@
+- Chiamata a Funzione Assembler:
+    - sample.c, decommentare Commento0 per dichiarazione della firma della funzione assembler
+    -           decommentare Commento0_1 per chiamare la funzione assembler dal main
+    - ASM_funct.s, completare definizione della funzione e gestione area variabili in read only/readwrite (!occhio agli EXPORT!)
+
+- Chiamata a SVC:
+    - sample.c, eliminare Commento1 per chiamata a SVC in assembler
+    - startup_LPC17xx.c, eliminare Commento1_1 nell'Handler_SVC
+
+- Handler/User Mode:
+    - startup_LPC17xx.c, decommentare Commento2 per suddividere lo stack
+    -                    decommentare Commento2_1 per entrare in User Mode (nel reset handler)
+
+- Buttons:
+    - IRQ_button.c, non serve modificarlo se va gestito il debouncing
+    - IRQ_RIT.c, gestisce il debouncing di tutti i buttons
+
+- Timers: (1[msec]=0.001[sec])
+    - system_LPC17xx.c, per accendere il timer 2/3 vado nel wizard e accendo il timer in PCONP
+    - INIZIALIZZAZIONE PARAMETRI TIMER: 
+                init_timer(2, 0, 0, 1, 0x000061A8);   
+                    2 -> timer 2    (0 timer 0, 1 timer 1, ...)
+                    0 -> prescalare (non serve)
+                    0 -> Match Register 0.   (1 Match Register 1, 2 Match Register 2, ...)
+                    1 -> SRI = Interrupt. Quando il timer raggiunge il valore del match register, scatena solo l'interrupt 
+                    0x000186A0 -> valore da assegnare al Match Register 0. 
+                      
+                    SRI(Stop, Reset, Interrupt) values:
+                        0 -> nulla
+                        4 -> stop, ferma il conteggio del timer (enable)
+                        2 -> reset, resetta il valore del timer facendolo ripartire
+                        1 -> interrupt, entra nell'handler del timer (IRQ_timer.c)
+                        
+                        3 -> interrupt e reset
+                        5 -> interrupt e stop
+                        6 -> stop e reset
+                        7 -> stop e reset e interrupt
+
+- Joystick:
+    - IRQ_RIT.c, gestione del joystick
+
+- Priorita' delle periferiche [0...n]
+    - Buttons: lib_button.c, riga 22 -> ([alta]1>2>3>...[bassa])
+    - Timers: lib_timer.c, riga 143 -> (valore di defualt per ogni timer = 0)
+    - RIT: lib_RIT.c, [forse] NVIC_SetPriority(RIT_IRQn, <valore_priorita'>);

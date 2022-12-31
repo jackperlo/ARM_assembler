@@ -8,7 +8,6 @@
 				
 				SUBS R0, R0, #1
 				BEQ exit
-				ADDNE R0, R0, #1
 					
 while			CMP		R11, #1
 				BNE		exit

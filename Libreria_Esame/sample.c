@@ -18,6 +18,7 @@
 #include "button_EXINT/button.h"
 #include "timer/timer.h"
 #include "RIT/RIT.h"
+#include "joystick/joystick.h"
 
 /*Chiamata ad una funzione assembler*/
 //extern int my_function(int); //Commento0

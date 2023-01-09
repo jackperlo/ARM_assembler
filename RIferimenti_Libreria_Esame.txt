@@ -15,7 +15,8 @@
     - IRQ_button.c, non serve modificarlo se va gestito il debouncing
     - IRQ_RIT.c, gestisce il debouncing di tutti i buttons
 
-- Timers: (1[msec]=0.001[sec])
+- Timers: 
+    - ( scala del tempo |s, ds "decimi di secondo" -> 1s = 0.1ds, cs "centesimi di secondo" -> 1s = 0.01cs, ms "milli secondo" -> 1s = 0.001ms| )
     - system_LPC17xx.c, per accendere il timer 2/3 vado nel wizard e accendo il timer in PCONP
     - INIZIALIZZAZIONE PARAMETRI TIMER: 
                 init_timer(2, 0, 0, 1, 0x000061A8);   

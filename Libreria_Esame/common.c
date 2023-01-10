@@ -1,3 +1,5 @@
 #include "common.h"
 
-void sharedFunction(void);
+void sharedFunction(void){
+	
+}

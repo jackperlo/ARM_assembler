@@ -2,6 +2,7 @@
 ".\startup_lpc17xx.o"
 ".\sample.o"
 ".\asm_funct.o"
+".\common.o"
 ".\core_cm3.o"
 ".\system_lpc17xx.o"
 ".\funct_led.o"

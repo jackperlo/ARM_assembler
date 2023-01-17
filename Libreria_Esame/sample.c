@@ -18,7 +18,8 @@
 #include "button_EXINT/button.h"
 #include "timer/timer.h"
 #include "RIT/RIT.h"
-#include "joystick/joystick.h"
+//#include "joystick/joystick.h"
+//#include "adc/adc.h"
 
 /*Chiamata ad una funzione assembler*/
 //extern int my_function(int); //Commento0
@@ -43,14 +44,14 @@ int main (void) {
 	//my_function(10);//Commento0_1
 	
 	/*Gestione LEDs */
-	//LED_init();                           
+	LED_init();                           
   
 	/*GEstione BUTTONs */
-	//BUTTON_init();												
+	BUTTON_init();												
 	
 	/*Gestione RIT 50 msec       */	
-	//init_RIT(0x004C4B40);								/*100.000.000[Mhz]*0.05[sec]=5.000.000 = 0x004C4B40*/
-	//enable_RIT();												
+	init_RIT(0x004C4B40);								/*100.000.000[Mhz]*0.05[sec]=5.000.000 = 0x004C4B40*/
+	enable_RIT();												
 	
 	/*Gestione TIMER*/
 	//init_timer(0, 0, 0, 3, 0x017D7840);   /*25.000.000[Mhz]*1[sec]=25.000.000 = 0x017D7840*/
@@ -58,6 +59,9 @@ int main (void) {
 	
 	/*Gestione JOYSTICK*/
 	//joystick_init();
+	
+	/*Gestione POTENZIOMETRO*/
+	//ADC_init();	
 	
 	LPC_SC->PCON |= 0x1;									/* power-down	mode										*/
 	LPC_SC->PCON &= ~(0x2);						

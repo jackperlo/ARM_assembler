@@ -23,6 +23,14 @@ my_function		PROC
 					;MOV r0, #1
 			
 				;END CODICE
+				
+				;per leggere byte LDRB R5, [R0, R1]
+				;per leggere word LDR R5, [R0, R1, LSL#2]
+				
+				;suppongo in R3, la N del ciclo
+;loop			
+				;SUBS R3, R3, #1
+				;BNE loop
 
 				POP {r4-r12,pc} ;restore di tutti i registri utilizzati nel mio codice
 				ENDP				

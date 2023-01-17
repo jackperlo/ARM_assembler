@@ -9,6 +9,9 @@
 *********************************************************************************************************/
 #include "lpc17xx.h"
 #include "timer.h"
+//#include "../led/led.h"
+//#include "../RIT/RIT.h"
+//#include "../../common.h"
 
 /******************************************************************************
 ** Function name:		Timer0_IRQHandler
@@ -21,29 +24,32 @@
 ******************************************************************************/
 void TIMER0_IRQHandler (void)
 {
-	/* Match register 0 interrupt service routine */
-	if (LPC_TIM0->IR & 1){
-		LPC_TIM0->IR = 1;			/* clear interrupt flag */
+	// Match register 0 interrupt service routine
+	/*if (LPC_TIM0->IR & 1){
+		LPC_TIM0->IR = 1;			// clear interrupt flag 
 	}
-	/* Match register 1 interrupt service routine */
+	// Match register 1 interrupt service routine 
 	else if(LPC_TIM0->IR & 2){
 		//ESEMPIO:  setta il match register ad un nuovo valore quando raggiunge una certa soglia
-	  /*
-		if(LPC_TIM0->MR1 == 0x0bebc20)  
-			 LPC_TIM0->MR1 = 0x017D7840;
-		else
-			 LPC_TIM0->MR1 = 0x0bebc20;
-		*/
-		LPC_TIM0->IR =  2 ;			/* clear interrupt flag */	
+	  
+		//if(LPC_TIM0->MR1 == 0x0bebc20)  
+			 //LPC_TIM0->MR1 = 0x017D7840;
+		//else
+			 //LPC_TIM0->MR1 = 0x0bebc20;
+		
+		//LPC_TIM0->IR =  2 ;			// clear interrupt flag 	
 	}
-	/* Match register 2 interrupt service routine */
+	// Match register 2 interrupt service routine 
 	else if(LPC_TIM0->IR & 4){
-		LPC_TIM0->IR =  4 ;			/* clear interrupt flag */	
+		LPC_TIM0->IR =  4 ;			// clear interrupt flag 
 	}
-	/* Match register 3 interrupt service routine */
+	// Match register 3 interrupt service routine 
 	else if(LPC_TIM0->IR & 8){
-		LPC_TIM0->IR =  8 ;			/* clear interrupt flag */	
-	}
+		LPC_TIM0->IR =  8 ;			  // clear interrupt flag 
+	}*/
+	
+	
+	LPC_TIM0->IR = 1;
   return;
 }
 

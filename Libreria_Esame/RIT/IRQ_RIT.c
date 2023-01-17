@@ -9,6 +9,10 @@
 *********************************************************************************************************/
 #include "lpc17xx.h"
 #include "RIT.h"
+//#include "../adc/adc.h"
+//#include "../led/led.h"
+//#include "../timer/timer.h"
+//#include "../../common.h"
 
 /******************************************************************************
 ** Function name:		RIT_IRQHandler
@@ -27,6 +31,10 @@ volatile int down_2 = 0;
 
 void RIT_IRQHandler (void)
 {		
+	
+	/*GESTIONE ADC*/
+	//ADC_start_conversion();
+	
 	static int j_select=0, j_left=0, j_right=0, j_down=0, j_up=0;
 	
 	/*Gestione Joystick Polling*/

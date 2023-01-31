@@ -8,14 +8,18 @@ my_function		PROC
 				EXPORT my_function
 				
 				;salvo tutti i registri che utilizzerò nel mio codice: NB r0, r1, r2, r3 -> sono i 4 parametri utilizzabili come input
+				
+				;MOV r12, SP  ;abilitarlo per ottenere i parametri contenuti sullo stack
+				
 				PUSH {r4-r12,lr}
 				
 				;ottengo il valore di un parametro(r0) passato per indirizzo in memoria
 				;LDR r0, [r0]
 				
 				;ottengo 5°/6° parametro(r4, r5) dallo stack
-				;LDR r4, [SP]
-				;LDR r5, [SP, #4]
+				
+				;LDR r4, [r12]   ; abilitare riga 11 !!!!!!!
+				;LDR r5, [r12, #4]
 				
 				;CODICE
 			

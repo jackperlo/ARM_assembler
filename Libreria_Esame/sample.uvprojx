@@ -531,6 +531,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>adc</GroupName>
+          <Files>
+            <File>
+              <FileName>IRQ_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\adc\IRQ_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>lib_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\adc\lib_adc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>

@@ -21,6 +21,10 @@ my_function		PROC
 				;LDR r4, [r12]   ; abilitare riga 11 !!!!!!!
 				;LDR r5, [r12, #4]
 				
+				; oppure
+				;LDR r4, [SP, #36]
+				;LDR r5, [SP, #40]
+				
 				;CODICE
 			
 					;salvo in R0 il valore di ritorno

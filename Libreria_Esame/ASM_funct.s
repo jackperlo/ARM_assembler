@@ -22,8 +22,8 @@ my_function		PROC
 				;LDR r5, [r12, #4]
 				
 				; oppure
-				;LDR r4, [SP, #36]
-				;LDR r5, [SP, #40]
+				;LDR r4, [SP, #40]
+				;LDR r5, [SP, #44]
 				
 				;CODICE
 			

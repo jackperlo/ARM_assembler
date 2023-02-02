@@ -9,9 +9,9 @@
 *********************************************************************************************************/
 #include "lpc17xx.h"
 #include "timer.h"
-//#include "../led/led.h"
-//#include "../RIT/RIT.h"
-//#include "../../common.h"
+#include "../led/led.h"
+#include "../RIT/RIT.h"
+#include "../../common.h"
 
 /******************************************************************************
 ** Function name:		Timer0_IRQHandler

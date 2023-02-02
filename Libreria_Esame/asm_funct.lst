@@ -17,67 +17,67 @@ ARM Macro Assembler    Page 1
    10 00000000         ;salvo tutti i registri che utilizzerò nel mio codice: N
                        B r0, r1, r2, r3 -> sono i 4 parametri utilizzabili come
                         input
-   11 00000000 E92D 5FF0       PUSH             {r4-r12,lr}
-   12 00000004         
-   13 00000004         ;ottengo il valore di un parametro(r0) passato per indir
-                       izzo in memoria
-   14 00000004         ;LDR r0, [r0]
+   11 00000000         
+   12 00000000         ;MOV r12, SP  ;abilitarlo per ottenere i parametri conte
+                       nuti sullo stack
+   13 00000000         
+   14 00000000 E92D 5FF0       PUSH             {r4-r12,lr}
    15 00000004         
-   16 00000004         ;ottengo 5°/6° parametro(r4, r5) dallo stack
-   17 00000004         ;LDR r4, [SP]
-   18 00000004         ;LDR r5, [SP, #4]
-   19 00000004         
-   20 00000004         ;CODICE
-   21 00000004         
-   22 00000004         ;salvo in R0 il valore di ritorno
-   23 00000004         ;MOV r0, #1
-   24 00000004         
-   25 00000004         ;END CODICE
-   26 00000004         
-   27 00000004 E8BD 9FF0       POP              {r4-r12,pc} ;restore di tutti i
+   16 00000004         ;ottengo il valore di un parametro(r0) passato per indir
+                       izzo in memoria
+   17 00000004         ;LDR r0, [r0]
+   18 00000004         
+   19 00000004         ;ottengo 5°/6° parametro(r4, r5) dallo stack
+   20 00000004         
+   21 00000004         ;LDR r4, [r12]   ; abilitare riga 11 !!!!!!!
+   22 00000004         ;LDR r5, [r12, #4]
+   23 00000004         
+   24 00000004         ; oppure
+   25 00000004         ;LDR r4, [SP, #40]
+   26 00000004         ;LDR r5, [SP, #44]
+   27 00000004         
+   28 00000004         ;CODICE
+   29 00000004         
+   30 00000004         ;salvo in R0 il valore di ritorno
+   31 00000004         ;MOV r0, #1
+   32 00000004         
+   33 00000004         ;END CODICE
+   34 00000004         
+   35 00000004         ;per leggere byte LDRB R5, [R0, R1]
+   36 00000004         ;per leggere word LDR R5, [R0, R1, LSL#2]
+   37 00000004         
+   38 00000004         ;suppongo in R3, la N del ciclo
+   39 00000004         ;loop   
+   40 00000004         ;SUBS R3, R3, #1
+   41 00000004         ;BNE loop
+   42 00000004         
+   43 00000004 E8BD 9FF0       POP              {r4-r12,pc} ;restore di tutti i
                                                              registri utilizzat
                                                             i nel mio codice
-   28 00000008                 ENDP
-   29 00000008         
-   30 00000008         
-   31 00000008         ;definizione area dati readONLY
-   32 00000008                 AREA             _data, DATA, READONLY, align=3
-   33 00000000                 EXPORT           my_vector [DATA]
-   34 00000000                 EXPORT           my_variable
-   35 00000000 FFFFFFFB 
+   44 00000008                 ENDP
+   45 00000008         
+   46 00000008         
+   47 00000008         ;definizione area dati readONLY
+   48 00000008                 AREA             _data, DATA, READONLY, align=3
+   49 00000000                 EXPORT           my_vector [DATA]
+   50 00000000                 EXPORT           my_variable
+   51 00000000 FFFFFFFB 
               FFFFFF01 my_vector
-                               DCD              -5, 0xFFFFFF01
-   36 00000008 41      my_variable
-                               DCB              'A'
-   37 00000009         
-   38 00000009         ;definizione area dati readWRITE
-   39 00000009                 AREA             _data2, DATA, READWRITE, align=
-3
-   40 00000000                 EXPORT           my_space_4_vector
-   41 00000000 00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
 
 
 
 ARM Macro Assembler    Page 2 
 
 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
-              00 00 00 
+                               DCD              -5, 0xFFFFFF01
+   52 00000008 41      my_variable
+                               DCB              'A'
+   53 00000009         
+   54 00000009         ;definizione area dati readWRITE
+   55 00000009                 AREA             _data2, DATA, READWRITE, align=
+3
+   56 00000000                 EXPORT           my_space_4_vector
+   57 00000000 00 00 00 
               00 00 00 
               00 00 00 
               00 00 00 
@@ -146,17 +146,35 @@ ARM Macro Assembler    Page 3
               00 00 00 
               00 00 00 
               00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
               00 00    my_space_4_vector
                                SPACE            11*22       ;length(11)*n_byte(
                                                             22)
-   42 000000F2         
-   43 000000F2                 END
+   58 000000F2         
+   59 000000F2                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
-ork --depend=.\asm_funct.d -o.\asm_funct.o -I.\RTE\_Target_1 -IC:\Keil_v5\ARM\P
-ACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2
-.7.1\Device\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION 
-SETA 536" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --predefin
-e="_RTE_ SETA 1" --list=.\asm_funct.lst ASM_funct.s
+ork --depend=.\asm_funct.d -o.\asm_funct.o -I.\RTE\_Target_1 -IC:\Users\fabri\A
+ppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\fabri\AppD
+ata\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include --predefine="__EVAL S
+ETA 1" --predefine="__UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --pr
+edefine="LPC175x_6x SETA 1" --predefine="_RTE_ SETA 1" --list=.\asm_funct.lst A
+SM_funct.s
 
 
 
@@ -190,7 +208,7 @@ _data 00000000
 
 Symbol: _data
    Definitions
-      At line 32 in file ASM_funct.s
+      At line 48 in file ASM_funct.s
    Uses
       None
 Comment: _data unused
@@ -198,17 +216,17 @@ my_variable 00000008
 
 Symbol: my_variable
    Definitions
-      At line 36 in file ASM_funct.s
+      At line 52 in file ASM_funct.s
    Uses
-      At line 34 in file ASM_funct.s
+      At line 50 in file ASM_funct.s
 Comment: my_variable used once
 my_vector 00000000
 
 Symbol: my_vector
    Definitions
-      At line 35 in file ASM_funct.s
+      At line 51 in file ASM_funct.s
    Uses
-      At line 33 in file ASM_funct.s
+      At line 49 in file ASM_funct.s
 Comment: my_vector used once
 3 symbols
 
@@ -221,7 +239,7 @@ _data2 00000000
 
 Symbol: _data2
    Definitions
-      At line 39 in file ASM_funct.s
+      At line 55 in file ASM_funct.s
    Uses
       None
 Comment: _data2 unused
@@ -229,9 +247,9 @@ my_space_4_vector 00000000
 
 Symbol: my_space_4_vector
    Definitions
-      At line 41 in file ASM_funct.s
+      At line 57 in file ASM_funct.s
    Uses
-      At line 40 in file ASM_funct.s
+      At line 56 in file ASM_funct.s
 Comment: my_space_4_vector used once
 2 symbols
 341 symbols in table

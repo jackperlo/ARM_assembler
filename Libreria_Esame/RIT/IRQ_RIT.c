@@ -10,9 +10,9 @@
 #include "lpc17xx.h"
 #include "RIT.h"
 //#include "../adc/adc.h"
-//#include "../led/led.h"
-//#include "../timer/timer.h"
-//#include "../../common.h"
+#include "../led/led.h"
+#include "../timer/timer.h"
+#include "../../common.h"
 
 /******************************************************************************
 ** Function name:		RIT_IRQHandler

@@ -48,11 +48,14 @@
     - Timers: lib_timer.c, riga 143 -> (valore di defualt per ogni timer = 0)
     - RIT: lib_RIT.c, [forse] NVIC_SetPriority(RIT_IRQn, <valore_priorita'>);
 
-- Definizione maschere per estrarre N bit, partendo dalla posizione A, da una variabile con M bit (M > N)
+- Definizione maschere per estrarre N bit da una variabile con M bit (M > N) partendo dalla posizione A fino alla posizione B
     - Trovare il numero massimo rappresentabile su N bit -> Num = (2^N) -1
     - Shiftare a sinistra il Num di A bit -> Ris = Num << A
     - Se i bit estratti devono essere posizionati un una variabilie piccola, i bit estratti devono essere shiftati nelle posizioni più basse senno' il risultato verra' troncato
          - Supponendo di dover insirire il risultato in un char (8 bit) -> Ris >> A
 
     ESEMPIO: Prendere i bit (8) dal 16 al 23 da TC del timer1 e metterli in una variabile unsigned char
+		- Massimo numero rappresentabile su 8 bit -> 255
+            - Shifto a sinistra di 16 bit -> <<  16
+		- Shifto a destra per inserirlo in un char -> >> 16
 		val = LPC_TIM1->TC & (255 << 16)) >> 16

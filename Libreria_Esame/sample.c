@@ -25,7 +25,7 @@
 //extern int my_function(int); //Commento0
 
 /* Led external variables from funct_led */
-extern unsigned char led_value;					
+//extern unsigned char led_value;					
 
 #ifdef SIMULATOR
 extern uint8_t ScaleFlag; // <- ScaleFlag needs to visible in order for the emulator to find the symbol (can be placed also inside system_LPC17xx.h but since it is RO, it needs more work)

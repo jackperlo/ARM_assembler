@@ -43,6 +43,7 @@ my_function		PROC
 				POP {r4-r12,pc} ;restore di tutti i registri utilizzati nel mio codice
 				ENDP				
 					
+				LTORG	
 					
 				;definizione area dati readONLY
 				AREA _data, DATA, READONLY, align=3

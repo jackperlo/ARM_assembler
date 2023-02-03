@@ -67,7 +67,7 @@ int main (void) {
 	LPC_SC->PCON &= ~(0x2);						
 		
   while (1) {                           /* Loop forever                       */	
-//		__ASM("wfi");
+		__ASM("wfi");
   }
 
 }

@@ -56,29 +56,29 @@ ARM Macro Assembler    Page 1
                                                             i nel mio codice
    44 00000008                 ENDP
    45 00000008         
-   46 00000008         
-   47 00000008         ;definizione area dati readONLY
-   48 00000008                 AREA             _data, DATA, READONLY, align=3
-   49 00000000                 EXPORT           my_vector [DATA]
-   50 00000000                 EXPORT           my_variable
-   51 00000000 FFFFFFFB 
-              FFFFFF01 my_vector
+   46 00000008                 LTORG
+   47 00000008         
+   48 00000008         ;definizione area dati readONLY
+   49 00000008                 AREA             _data, DATA, READONLY, align=3
+   50 00000000                 EXPORT           my_vector [DATA]
+   51 00000000                 EXPORT           my_variable
+   52 00000000 FFFFFFFB 
 
 
 
 ARM Macro Assembler    Page 2 
 
 
+              FFFFFF01 my_vector
                                DCD              -5, 0xFFFFFF01
-   52 00000008 41      my_variable
+   53 00000008 41      my_variable
                                DCB              'A'
-   53 00000009         
-   54 00000009         ;definizione area dati readWRITE
-   55 00000009                 AREA             _data2, DATA, READWRITE, align=
+   54 00000009         
+   55 00000009         ;definizione area dati readWRITE
+   56 00000009                 AREA             _data2, DATA, READWRITE, align=
 3
-   56 00000000                 EXPORT           my_space_4_vector
-   57 00000000 00 00 00 
-              00 00 00 
+   57 00000000                 EXPORT           my_space_4_vector
+   58 00000000 00 00 00 
               00 00 00 
               00 00 00 
               00 00 00 
@@ -163,14 +163,15 @@ ARM Macro Assembler    Page 3
               00 00 00 
               00 00 00 
               00 00 00 
+              00 00 00 
               00 00    my_space_4_vector
                                SPACE            11*22       ;length(11)*n_byte(
                                                             22)
-   58 000000F2         
-   59 000000F2                 END
+   59 000000F2         
+   60 000000F2                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
-ork --depend=.\asm_funct.d -o.\asm_funct.o -I.\RTE\_Target_1 -IC:\Users\fabri\A
-ppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\fabri\AppD
+ork --depend=.\asm_funct.d -o.\asm_funct.o -I.\RTE\_Target_1 -IC:\Users\perlo\A
+ppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\perlo\AppD
 ata\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include --predefine="__EVAL S
 ETA 1" --predefine="__UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --pr
 edefine="LPC175x_6x SETA 1" --predefine="_RTE_ SETA 1" --list=.\asm_funct.lst A
@@ -208,7 +209,7 @@ _data 00000000
 
 Symbol: _data
    Definitions
-      At line 48 in file ASM_funct.s
+      At line 49 in file ASM_funct.s
    Uses
       None
 Comment: _data unused
@@ -216,17 +217,17 @@ my_variable 00000008
 
 Symbol: my_variable
    Definitions
-      At line 52 in file ASM_funct.s
+      At line 53 in file ASM_funct.s
    Uses
-      At line 50 in file ASM_funct.s
+      At line 51 in file ASM_funct.s
 Comment: my_variable used once
 my_vector 00000000
 
 Symbol: my_vector
    Definitions
-      At line 51 in file ASM_funct.s
+      At line 52 in file ASM_funct.s
    Uses
-      At line 49 in file ASM_funct.s
+      At line 50 in file ASM_funct.s
 Comment: my_vector used once
 3 symbols
 
@@ -239,7 +240,7 @@ _data2 00000000
 
 Symbol: _data2
    Definitions
-      At line 55 in file ASM_funct.s
+      At line 56 in file ASM_funct.s
    Uses
       None
 Comment: _data2 unused
@@ -247,9 +248,9 @@ my_space_4_vector 00000000
 
 Symbol: my_space_4_vector
    Definitions
-      At line 57 in file ASM_funct.s
+      At line 58 in file ASM_funct.s
    Uses
-      At line 56 in file ASM_funct.s
+      At line 57 in file ASM_funct.s
 Comment: my_space_4_vector used once
 2 symbols
 341 symbols in table

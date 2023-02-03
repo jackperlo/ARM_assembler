@@ -38,7 +38,7 @@ find_best_3		PROC
 loop_best_3		MOV data_in_index, #0
 				ADD local_max, #-100
 				
-loop_data_in	LDRB data_elem, [data_in, data_in_index]
+loop_data_in	LDRSB data_elem, [data_in, data_in_index]
 				CMP data_elem, local_max
 				BLE no_max
 				CMP data_elem, ex_max

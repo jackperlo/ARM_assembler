@@ -62,4 +62,20 @@
 		- Shifto a destra per inserirlo in un char -> >> 16
 		val = (LPC_TIM1->TC & (255 << 16)) >> 16
 		
+- EXTERN per utilizzare nel C variabili definite in ARM
+
+- EINT1 -> KEY1
+- EINT2 -> KEY2
+- EINT3 -> INT0
+
+- LED: LD4 = Led_Out(7), LD5 = Led_Out(6), ....	
+		
+ ---  ARM  ---
+
+- LDRSB = legge dalla memoria 8 bit e ne estende il segno su 32 bit
+
+- LPC_TIM0->TC: si ottiene il valore del contatore associato al timer0 (time counter)
+
+- In RAM lo spazio deve essere definito in BYTE
+		
 

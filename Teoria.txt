@@ -1,0 +1,15 @@
+- FARE LA EXECUTE NELLA STORE E NELLA LOAD
+
+- SPEEDUP = OLD CYCLE / NEW CYCLE
+
+- SPEEDUP_AMDHALL = 1 / [(1 - Fraction) + (Fraction / Speedup)]
+ 
+	Fraction = (Cicli del c * Cicli dell'istruzione ottimizzata OLD sommati) / OLD CYCLE
+	
+	Speedup = Cicli dell'istruzione ottimizzata OLD sommati / Cicli dell'istruzione ottimizzata NEW sommati
+
+- FETCH E MEM assieme grazie all'architettura Harvard
+
+- DECODE E WRITE BACK usando la prima metà del ciclo di clock per la WRITE BACK e la seconda metà per la DECODE
+
+- La Reservation Station si libera durante il ciclo di WRITE BACK (in TOMASULO)

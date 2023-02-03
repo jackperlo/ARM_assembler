@@ -18,8 +18,10 @@
 - Timers: 
     - ( scala del tempo |s, ds "decimi di secondo" -> 1s = 0.1ds, cs "centesimi di secondo" -> 1s = 0.01cs, ms "milli secondo" -> 1s = 0.001ms| )
     - ( scala del tempo |s, ds "decimo di secondo" -> 0.1s = 1ds, cs "centesimi di secondo" -> 0.01s = 1cs, ms "milli secondo" -> 0.001s = 1ms| ) 
-    - esempio di lampeggio con timer di frequenza 50MHz = ogni [1/50*(10^6)]s accendo o spengo il LED
-    - esempio di lampeggio con timer di periodo 50ms = ogni 25ms spengo o accendo il LED (quindi un timer con frequenza 0.025*25milioni)
+	- esempio di lampeggio con timer di frequenza 2Hz (!CASO NORMALE!) = ogni {[1/2]*25*(10^6)]s entro nell'handler del timer
+    - esempio di lampeggio con timer di frequenza 5kHz (!CASO LED!) = ogni {[1/(5000*2)]*25*(10^6)]s accendo o spengo il LED
+	- esempio di lampeggio con timer di periodo 50ms (!CASO NORMALE!) = ogni 50ms entro nell'handler (quindi un timer con frequenza 0.050*25milioni)
+    - esempio di lampeggio con timer di periodo 50ms (!CASO LED!) = ogni 25ms spengo o accendo il LED (quindi un timer con frequenza 0.025*25milioni)
     - system_LPC17xx.c, per accendere il timer 2/3 vado nel wizard e accendo il timer in PCONP
     - INIZIALIZZAZIONE PARAMETRI TIMER: 
                 init_timer(2, 0, 0, 1, 0x000061A8);   
@@ -58,4 +60,6 @@
 		- Massimo numero rappresentabile su 8 bit -> 255
             - Shifto a sinistra di 16 bit -> <<  16
 		- Shifto a destra per inserirlo in un char -> >> 16
-		val = LPC_TIM1->TC & (255 << 16)) >> 16
+		val = (LPC_TIM1->TC & (255 << 16)) >> 16
+		
+

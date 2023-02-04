@@ -17,3 +17,21 @@ void printOnLed(int pos) {
 		count --;
 	}
 }
+
+//Versione alternativa 
+void printOnLed(int number) {
+	int resto = 0;
+	int cont = 7;
+	
+	while(cont >= 0 && number > 0) {
+		resto = number % 2;
+		if(resto == 0)
+			LED_Off(cont);
+		else
+			LED_On(cont);
+		
+		number = number / 2;
+		
+		cont --;
+	}
+}

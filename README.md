@@ -21,3 +21,5 @@ Giacomo Perlo: [Linkedin](https://www.linkedin.com/in/giacomo-perlo/), <perlogia
 Fabrizio Sanino: [Linkedin](linkedin.com/in/fabrizio-sanino-334307143), <fabrizio.sanino@studenti.polito.it><br/> 
 If you need help or want to know something more about all of this, we are ready and excited to help you!
 
+## Licence
+[Licence](LICENCE)

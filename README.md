@@ -4,11 +4,11 @@ This repository contains a basic library of ARM Assembler and C code which helpe
 ## Landtiger NXP LPC1768
 The code is written for the *Landtiger NXP LPC1768* used in Politecnico. <br/>
 Meaningful informations about the chip composition:
-    - **ARM 32-bit Cortex-M3** microcontroller with MPU, CPU clock up to 100MHz
-    - 512kB on-chip Flash ROM
-    - 4x 32-bit Timers and a Repetitive Interrupt Controller 
-    - 64kB RAM, Nested Vectored Interrupt Controller
-    - Power Management Unit and Wakeup Interrupt Controller
+- **ARM 32-bit Cortex-M3** microcontroller with MPU, CPU clock up to 100MHz
+- 512kB on-chip Flash ROM
+- 4x 32-bit Timers and a Repetitive Interrupt Controller 
+- 64kB RAM, Nested Vectored Interrupt Controller
+- Power Management Unit and Wakeup Interrupt Controller
 <br/>
 The IDE used to develop this project is [*Keil uVision*](https://www2.keil.com/mdk5/uvision/).
 

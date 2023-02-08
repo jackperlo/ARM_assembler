@@ -9,8 +9,7 @@ Meaningful informations about the chip composition:
 - 4x 32-bit Timers and a Repetitive Interrupt Controller 
 - 64kB RAM, Nested Vectored Interrupt Controller
 - Power Management Unit and Wakeup Interrupt Controller
-<br/>
-The IDE used to develop this project is [Keil_uVision](https://www2.keil.com/mdk5/uvision).
+The IDE used to develop this project is [Keil uVision](https://www2.keil.com/mdk5/uvision/).
 
 ## How is this Repository organized?
 - ***Code_Snippets***, this directory contains several code snippets written in both C and ARM Assembler which were useful to improve ourselves in developing assembly code and which could have been used during the exam. (spoiler: they were not used!).

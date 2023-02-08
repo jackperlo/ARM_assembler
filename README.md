@@ -13,9 +13,9 @@ Meaningful informations about the chip composition:
 The IDE used to develop this project is [*Keil uVision*](https://www2.keil.com/mdk5/uvision/).
 
 ## How is this Repository organized?
-- *** Code_Snippets ***, this directory contains several code snippets written in both C and ARM Assembler which were useful to improve ourselves in developing assembly code and which could have been used during the exam. (spoiler: they were not used!).
-- *** Exam_Library ***, this directory contains the code from which we both (me and Fabrizio) started during our exam. Since the development of a project like takes a couple of hours we were allowed to build a library of our own and start from it to develop the exam requirements.
-- *** useful_notes ***, this notes really helped us to manage the different scenarios which a project like this could have lead us to.
+- ***Code_Snippets***, this directory contains several code snippets written in both C and ARM Assembler which were useful to improve ourselves in developing assembly code and which could have been used during the exam. (spoiler: they were not used!).
+- ***Exam_Library***, this directory contains the code from which we both (me and Fabrizio) started during our exam. Since the development of a project like takes a couple of hours we were allowed to build a library of our own and start from it to develop the exam requirements.
+- ***useful_notes***, this notes really helped us to manage the different scenarios which a project like this could have lead us to.
 
 ## Contacts
 ## Contact

@@ -17,7 +17,6 @@ The IDE used to develop this project is [Keil uVision](https://www2.keil.com/mdk
 - ***useful_notes***, this notes really helped us to manage the different scenarios which a project like this could have lead us to.
 
 ## Contacts
-## Contact
 Giacomo Perlo: [Linkedin](https://www.linkedin.com/in/giacomo-perlo/), <perlogiacomo@gmail.com><br/>
 Fabrizio Sanino: [Linkedin](linkedin.com/in/fabrizio-sanino-334307143), <fabrizio.sanino@studenti.polito.it><br/> 
 If you need help or want to know something more about all of this, we are ready and excited to help you!
